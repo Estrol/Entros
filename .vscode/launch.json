@@ -21,8 +21,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\index.js",
-            "autoAttachChildProcesses": true
+            "program": "${workspaceFolder}\\shardScript.js"
         }
     ]
 }

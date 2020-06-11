@@ -1,6 +1,7 @@
 import * as discord from 'discord.js';
 import * as fs from 'fs';
 import * as path from 'path';
+import Database from 'better-sqlite3';
 
 export default class Resource {
 
@@ -88,7 +89,7 @@ export default class Resource {
 
                 const library = (await import(uri)).default;
 
-                library();
+                library(this.main);
             }
         }
 
@@ -123,6 +124,20 @@ export default class Resource {
         } catch (error) {
             throw error;
         }
+
+        return true;
+    }
+
+    loadDatabase() {
+        const db = new Database('.data/entros.db');
+
+        this.main.db = db;
+
+        db.prepare('CREATE TABLE IF NOT EXISTS warns (guild_id TEXT NOT NULL, id NOT NULL, reason TEXT NOT NULL, mod TEXT NOT NULL, action TEXT NOT NULL, guild_case_id TEXT NOT NULL)').run()
+        db.prepare('CREATE TABLE IF NOT EXISTS guild_prefix (guild_id TEXT NOT NULL, prefix TEXT NOT NULL)').run()
+        db.prepare('CREATE TABLE IF NOT EXISTS guild_mute (guild_id TEXT NOT NULL, user_id TEXT NOT NULL, duration TEXT)').run()
+        db.prepare('CREATE TABLE IF NOT EXISTS tags (name TEXT NOT NULL, content TEXT NOT NULL, userid TEXT NOT NULL)').run()
+        db.prepare('CREATE TABLE IF NOT EXISTS cmd_blacklist (type TEXT NOT NULL, user_id TEXT NOT NULL)').run()
 
         return true;
     }

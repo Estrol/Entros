@@ -55,4 +55,26 @@ export default class Utils {
         return user;
     }
 
+    getGuildCaseID(guildID) {
+        Array.max = function(array) {
+            return Math.max.apply(Math, array);
+        }
+
+        const rows = this.main.db.prepare("SELECT * FROM warns WHERE guild_id = ?").all(guildID);
+
+        if (rows.length === 0) {
+            return 0;
+        }
+
+        const results = rows.map(r => r.guild_case_id);
+
+        return Array.max(results);
+    }
+
+    insertGuildWarn(guildID, userID, reason = "No Reason provided", authorID, action, guildCaseID) {
+        this.main.db.prepare("INSERT INTO warns(guild_id, id, reason, mod, action, guild_case_id) VALUES(?, ?, ?, ?, ?, ?)")
+        .run(guildID, userID, reason, authorID, action, guildCaseID);
+
+        return true;
+    }
 }

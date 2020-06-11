@@ -1,3 +1,6 @@
+/** Declarating CommonJS compatibility inside EMCAScript module */
+global.require = module.createRequire(import.meta.url);
+
 import * as discord from 'discord.js';
 import * as module from 'module';
 import dotenv from 'dotenv';
@@ -12,13 +15,11 @@ process.on('unhandledRejection', (error, promise) => {
     console.error(error);
 });
 
-/** Declarating CommonJS compatibility inside EMCAScript module */
-global.require = module.createRequire(import.meta.url);
-
 export default class EntrosShardChild {
     
     constructor() {
         this.discord = discord;
+        this.db = null;
 
         this.client = new EntrosClient({
             disableMentions: 'everyone',
@@ -39,6 +40,7 @@ export default class EntrosShardChild {
         this.Resource.loadCommands();
         this.Resource.loadEvents();
         this.Resource.loadModules();
+        this.Resource.loadDatabase();
 
         this.Utils = new Utils(this);
 
