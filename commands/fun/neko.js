@@ -47,7 +47,7 @@ export default {
 
                 const embed = new ctx.main.discord.MessageEmbed()
                     .setImage(image)
-                    .setDescription(`nekos.life Image: random tag ${tag}`)
+                    .setDescription(`EntrosWeebAPI Image: random tag ${tag}`)
                     .setTimestamp()
                     .setFooter("Entros - entrosbot.xyz");
 
@@ -66,7 +66,7 @@ export default {
 
                 const embed = new ctx.main.discord.MessageEmbed()
                     .setImage(image)
-                    .setDescription(`nekos.life Image: Random tag ${tag}`)
+                    .setDescription(`EntrosWeebAPI Image: Random tag ${tag}`)
                     .setTimestamp()
                     .setFooter("Entros - entrosbot.xyz");
 
