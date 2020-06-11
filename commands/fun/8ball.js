@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: 'Asking the magic 8ball about whatever future',
     fn: (ctx, args) => {
         if (args.length < 1) {

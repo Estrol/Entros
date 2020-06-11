@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     callback: function (ctx) {
         if (ctx.partial) {
             return;

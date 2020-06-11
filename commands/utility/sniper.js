@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: 'Shows last deleted message (from user if provied) in that channel!',
     aliases: ['snipe'],
     fn: async (ctx, args) => {

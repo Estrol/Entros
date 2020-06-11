@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: 'Show a avatar of you!',
     fn: async (ctx, args, argString) => {
         if (!argString) {

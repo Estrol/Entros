@@ -1,6 +1,6 @@
-import * as util from 'util';
+const util = require('util');
 
-export default {
+module.exports = {
     description: 'Evaluate ECMAScript javascript code!',
     userPermissions: ['BOT_OWNER'],
     fn: async (ctx, args, argString) => {

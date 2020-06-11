@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: "",
     fn: async (ctx, args, argString) => {
         let discriminator = ctx.author.discriminator;

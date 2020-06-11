@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: "Get neko images uWu",
     fn: async (ctx, args) => {
         const nameTag = (args.shift() || "").toLowerCase();

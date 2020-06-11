@@ -1,4 +1,4 @@
-export default class Utils {
+module.exports = class Utils {
     
     constructor(main) {
         this.main = main;

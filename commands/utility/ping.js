@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: 'A ping command, that checking bot message time and discord gateway time!',
     fn: async (ctx) => {
         const message = await ctx.reply('Pinging...');

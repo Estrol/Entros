@@ -1,8 +1,8 @@
-import * as os from 'os';
-import moment from 'moment';
-import 'moment-duration-format';
+const os = require('os');
+const moment = require('moment');
+require('moment-duration-format');
 
-export default {
+module.exports = {
     description: "",
     fn: async (ctx) => {
         const shardGuilds = await ctx.main.client.shard.fetchClientValues('guilds.cache.size');

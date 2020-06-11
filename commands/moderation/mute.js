@@ -1,6 +1,6 @@
-import ms from 'ms';
+const ms = require('ms');
 
-export default {
+module.exports = {
     description: "Mute a member!",
     guildOnly: true,
     userPermissions: ["MANAGE_MESSAGE"],

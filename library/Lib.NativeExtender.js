@@ -1,4 +1,4 @@
-export default () => {
+module.exports = () => {
 
     Array.prototype.remove = function() {
         var what, a = arguments, L = a.length, ax;

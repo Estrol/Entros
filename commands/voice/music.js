@@ -1,7 +1,6 @@
-import fetch from 'node-fetch';
-import ytdl from 'ytdl-core-discord';
-
 const humanizeDuration = require("humanize-duration");
+const fetch = require('node-fetch');
+const ytdl = require('ytdl-core-discord');
 
 const hd = humanizeDuration.humanizer({
     languages: {
@@ -12,7 +11,7 @@ const hd = humanizeDuration.humanizer({
     }
 })
 
-export default {
+module.exports = {
     description: "Play a music!",
     guildOnly: true,
     fn: async (ctx, args) => {

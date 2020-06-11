@@ -1,11 +1,8 @@
-import fetch from 'node-fetch';
-import path from 'path';
-import url from 'url';
-
 const { createCanvas, loadImage } = require('canvas');
-const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const fetch = require('node-fetch');
+const path = require('path');
 
-export default {
+module.exports = {
     description: 'Create a fake tweet!',
     guildOnly: true,
     fn: async (ctx, args) => {

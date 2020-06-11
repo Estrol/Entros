@@ -1,6 +1,6 @@
-import { MessageEmbed } from "discord.js"
+const { MessageEmbed } = require('discord.js');
 
-export default {
+module.exports = {
     description: 'Shows Entros\'s bot information e.g Status, Server stats',
     fn: (ctx) => {
         const embed = new MessageEmbed()

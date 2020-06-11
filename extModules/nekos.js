@@ -1,6 +1,6 @@
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-export const get = async (neko) => {
+const get = async (neko) => {
     const url = 'https://weeb.entrosbot.xyz/api/v1';
 
     try {
@@ -23,14 +23,14 @@ export const get = async (neko) => {
     }
 }
 
-export class NekoError extends Error {
+class NekoError extends Error {
     constructor(message) {
         super(message)
         this.name = "NekoError";
     }
 }
 
-export const sfw = [
+const sfw = [
     'tickle',  'slap',       'poke',
     'pat',     'neko',       'meow',
     'lizard',  'kiss',       'hug',
@@ -41,7 +41,7 @@ export const sfw = [
     'waifu'
 ]
 
-export const nsfw = [
+const nsfw = [
     'randomHentaiGif', 'pussy',      'nekoGif',
     'lewd',            'lesbian',    'kuni',
     'cumsluts',        'classic',    'boobs',
@@ -56,3 +56,5 @@ export const nsfw = [
     'eroNeko',         'eroYuri',    'cumArts',
     'blowJob',         'spank',      'gasm'
 ]
+
+module.exports = { get, NekoError, sfw, nsfw};

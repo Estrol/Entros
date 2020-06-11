@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: "Unmute a muted member!",
     guildOnly: true,
     userPermissions: ["MANAGE_MESSAGE"],
@@ -12,7 +12,7 @@ export default {
             return ":x: Invalid member!";
         }
 
-        let response =  `Success unmuted user ${member}!`
+        let response = `Success unmuted user ${member}!`
 
         const row = ctx.main.db.prepare('SELECT * FROM guild_mute WHERE guild_id = ? and user_id = ?')
         .get(ctx.guild.id, member.user.id);

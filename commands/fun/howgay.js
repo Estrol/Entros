@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: "Rate how-gay user is based on his/her username (plus nickname if used)",
     fn: async (ctx, args) => {
         if (!ctx.guild) {

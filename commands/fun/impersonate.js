@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     description: 'Impersonate someone using webhook (this method will not effective on advanced users)',
     fn: async (ctx, args) => {
         if (args.length < 1) {

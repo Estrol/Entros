@@ -1,7 +1,7 @@
-import EventEmitter from 'events';
+const eventEmitter = require('events');
 const emojis = ['⏮', '◀', '▶', '⏭', '⏹'];
 
-export default class PaginationUtil {
+module.exports = class PaginationUtil {
 
     constructor(main) {
         this.main = main;

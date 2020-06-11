@@ -1,4 +1,4 @@
-export default (main) => {
+module.exports = (main) => {
     setInterval(async () => {
         const rows = main.db.prepare('SELECT * FROM guild_mute')
             .all()

@@ -1,13 +1,9 @@
-/** Declarating CommonJS compatibility inside EMCAScript module */
-global.require = module.createRequire(import.meta.url);
-
-import * as discord from 'discord.js';
-import * as module from 'module';
-import dotenv from 'dotenv';
-import Resource from './modules/Entros.Resource.js';
-import MessageHandler from './modules/Entros.MessageHandler.js';
-import EntrosClient from './modules/Entros.Client.js';
-import Utils from './modules/Entros.Utils.js';
+const discord = require('discord.js');
+const dotenv = require('dotenv');
+const Resource = require('./modules/Entros.Resource.js');
+const MessageHandler = require('./modules/Entros.MessageHandler.js');
+const EntrosClient = require('./modules/Entros.Client.js');
+const Utils = require('./modules/Entros.Utils.js');
 
 dotenv.config();
 
@@ -15,7 +11,7 @@ process.on('unhandledRejection', (error, promise) => {
     console.error(error);
 });
 
-export default class EntrosShardChild {
+class EntrosShardChild {
     
     constructor() {
         this.discord = discord;
@@ -51,5 +47,5 @@ export default class EntrosShardChild {
 
 }
 
-new EntrosShardChild();
+module.exports = new EntrosShardChild();
 

@@ -1,6 +1,6 @@
-import { Structures } from 'discord.js';
+const { Structures } = require('discord.js');
 
-export default () => {
+module.exports = () => {
     Structures.extend("Message", Message => {
         return class EntrosMessage extends Message {
 

@@ -1,9 +1,9 @@
-import * as discord from 'discord.js';
-import * as fs from 'fs';
-import * as path from 'path';
-import Database from 'better-sqlite3';
+const discord = require('discord.js');
+const fs = require('fs');
+const path = require('path');
+const Database = require('better-sqlite3');
 
-export default class Resource {
+module.exports = class Resource {
 
     constructor(main) {
         this.main = main;
@@ -23,9 +23,10 @@ export default class Resource {
 
                     let file = path.resolve(dir, subName);
                     let name = subName.substring(0, subName.lastIndexOf('.')).toLowerCase();
-                    let uri = `file://${file}`;
 
-                    const command = (await import(uri)).default;
+                    if (require.cache[require.resolve(file)]) delete require.cache[require.resolve(file)];
+
+                    const command = require(file);
                     commands.set(name, command);
 
                     if (command.aliases) {
@@ -60,10 +61,10 @@ export default class Resource {
 
                 let file = path.resolve(dir, subName);
                 let name = subName.substring(0, subName.lastIndexOf('.'));
-                let uri = `file://${file}`;
 
-                const event = (await import(uri)).default;
+                if (require.cache[require.resolve(file)]) delete require.cache[require.resolve(file)];
 
+                const event = require(file);
                 this.main.client.on(name, event.callback.bind(this.main));
             }
         }
@@ -85,9 +86,7 @@ export default class Resource {
                 }
 
                 let file = path.resolve(dir, subName);
-                let uri = `file://${file}`;
-
-                const library = (await import(uri)).default;
+                const library = require(file);
 
                 library(this.main);
             }
@@ -111,9 +110,8 @@ export default class Resource {
 
                 let file = path.resolve(dir, subName);
                 let name = subName.substring(0, subName.lastIndexOf('.'));
-                let uri = `file://${file}`;
 
-                const module = (await import(uri));
+                const module = require(file);
                 
                 this.main.modules[name] = module;
             }

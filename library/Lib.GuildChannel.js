@@ -1,6 +1,6 @@
-import { Structures } from 'discord.js';
+const { Structures } = require('discord.js');
 
-export default () => {
+module.exports = () => {
     Structures.extend("TextChannel", TextChannel => {
         return class EntrosTextChannel extends TextChannel {
 

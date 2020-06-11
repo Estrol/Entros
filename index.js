@@ -1,5 +1,6 @@
-import { ShardingManager, Collection } from "discord.js";
-import dotenv from "dotenv";
+const { ShardingManager, Collection } = require('discord.js');
+const dotenv = require('dotenv');
+
 dotenv.config();
 
 class Entros extends ShardingManager {

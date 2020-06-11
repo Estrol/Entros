@@ -1,6 +1,6 @@
-import * as discord from 'discord.js';
+const discord = require('discord.js');
 
-export default class EntrosClient extends discord.Client {
+module.exports = class EntrosClient extends discord.Client {
     constructor(options) {
         super(options);
 

@@ -1,4 +1,4 @@
-export default class MessageHandler {
+module.exports = class MessageHandler {
 
     constructor(main) {
         this.main = main;
