@@ -3,7 +3,7 @@
     "description": "<redacted>",
     "type": "module",
     "dependencies": {
-        "@discordjs/opus": "^0.2.1",
+        "@discordjs/opus": "^0.8.0",
         "better-sqlite3": "^7.0.1",
         "canvas": "^2.6.1",
         "discord.js": "^12.2.0",
